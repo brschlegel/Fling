@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8uf5nuu8wa7s"]
+
+[ext_resource type="PackedScene" uid="uid://cpyw75ds6u6jb" path="res://combat_characters/defenders/defender.tscn" id="1_vbwwk"]
+
+[node name="Fling Testbed" type="Node2D"]
+
+[node name="George" parent="." instance=ExtResource("1_vbwwk")]
+position = Vector2(162, 136)
+scale = Vector2(2, 2)
+
+[node name="Fred" parent="." instance=ExtResource("1_vbwwk")]
+position = Vector2(549, 113)
+scale = Vector2(2, 2)
+
+[node name="Marty" parent="." instance=ExtResource("1_vbwwk")]
+position = Vector2(330, 250)
+scale = Vector2(2, 2)

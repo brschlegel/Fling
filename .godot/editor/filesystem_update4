@@ -1,0 +1,7 @@
+res://combat_characters/defenders/defender.tscn
+res://flingables/flingable_manager.gd
+res://flingables/flingable.gd
+res://utilities/mouse_manager.gd
+res://combat_characters/combat_character.tscn
+res://world/world.tscn
+res://flingables/fling_testbed.tscn

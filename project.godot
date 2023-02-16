@@ -13,14 +13,21 @@ _global_script_classes=[{
 "class": &"Flingable",
 "language": &"GDScript",
 "path": "res://flingables/flingable.gd"
+}, {
+"base": "Node2D",
+"class": &"ShotIndicator",
+"language": &"GDScript",
+"path": "res://flingables/shot_indicator.gd"
 }]
 _global_script_class_icons={
-"Flingable": ""
+"Flingable": "",
+"ShotIndicator": ""
 }
 
 [application]
 
 config/name="Fling"
+run/main_scene="res://flingables/fling_testbed.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 

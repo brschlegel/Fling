@@ -22,9 +22,14 @@ physics_material_override = ExtResource("2_dfkbt")
 lock_rotation = true
 linear_damp = 1.0
 
+[node name="CollisionShape2D" parent="Flingable" index="0"]
+position = Vector2(0, 13)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flingable"]
 texture_filter = 1
 rotation = -0.00856873
 frames = SubResource("SpriteFrames_m3xqx")
 animation = &"idle"
 playing = true
+
+[editable path="Flingable"]

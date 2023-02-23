@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6rioamxi2vk4"]
+
+[ext_resource type="Script" path="res://combat_characters/enemies/NavRigidbody.cs" id="1_sr8i6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_not2i"]
+
+[node name="Enemy" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_sr8i6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_not2i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=11 format=3 uid="uid://byh5q01il6u7k"]
+
+[ext_resource type="PackedScene" uid="uid://b6rioamxi2vk4" path="res://combat_characters/enemies/enemy.tscn" id="1_a6en2"]
+[ext_resource type="Texture2D" uid="uid://c7fpctc1nvfva" path="res://tilesets/0x72_dungeon/individual_frames/skeleton/skelet_idle_anim_f0.png" id="1_pxso1"]
+[ext_resource type="Texture2D" uid="uid://4arsgle6vuhc" path="res://tilesets/0x72_dungeon/individual_frames/skeleton/skelet_idle_anim_f1.png" id="2_y16bf"]
+[ext_resource type="Texture2D" uid="uid://12upoxyn7vhq" path="res://tilesets/0x72_dungeon/individual_frames/skeleton/skelet_idle_anim_f2.png" id="3_f2xwu"]
+[ext_resource type="Texture2D" uid="uid://oam1823g6iop" path="res://tilesets/0x72_dungeon/individual_frames/skeleton/skelet_idle_anim_f3.png" id="4_ua6uo"]
+[ext_resource type="Texture2D" uid="uid://de6s0ghdvdp84" path="res://tilesets/0x72_dungeon/individual_frames/skeleton/skelet_run_anim_f0.png" id="5_rs3cu"]
+[ext_resource type="Texture2D" uid="uid://cjn2ktmgf4e3a" path="res://tilesets/0x72_dungeon/individual_frames/skeleton/skelet_run_anim_f1.png" id="6_atrcp"]
+[ext_resource type="Texture2D" uid="uid://j5p7m4wn4qxn" path="res://tilesets/0x72_dungeon/individual_frames/skeleton/skelet_run_anim_f2.png" id="7_ikrh5"]
+[ext_resource type="Texture2D" uid="uid://dpgil6woydj0g" path="res://tilesets/0x72_dungeon/individual_frames/skeleton/skelet_run_anim_f3.png" id="8_p7cn4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_owaps"]
+animations = [{
+"frames": [ExtResource("1_pxso1"), ExtResource("2_y16bf"), ExtResource("3_f2xwu"), ExtResource("4_ua6uo")],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [ExtResource("5_rs3cu"), ExtResource("6_atrcp"), ExtResource("7_ikrh5"), ExtResource("8_p7cn4")],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Skeleton" instance=ExtResource("1_a6en2")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+frames = SubResource("SpriteFrames_owaps")
+animation = &"run"

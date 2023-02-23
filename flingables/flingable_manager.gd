@@ -1,6 +1,9 @@
 extends Node
 
-
+@export
+var dist_to_select_threshold : float = 30
+@export 
+var velocity_to_select_threshold: float = 4
 var flingables : Array[Node2D]
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,8 +27,9 @@ func on_mouse_pressed():
 	var closest
 	for f in flingables:
 		var dist := f.global_position.distance_to(MouseManager.current_position)
-		if(dist <= minDist):
-			closest = f
-			minDist = dist
+		if dist <= dist_to_select_threshold and f.linear_velocity.length() <= velocity_to_select_threshold:
+			if(dist <= minDist):
+				closest = f
+				minDist = dist
 	if closest != null:
 		closest.select_to_fling()

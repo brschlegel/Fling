@@ -1,5 +1,7 @@
-res://tilesets/0x72_dungeon/individual_frames/knight_m
 res://flingables
+res://combat_characters/enemies/skeleton
+res://utilities/base_objects
+res://tilesets/0x72_dungeon/individual_frames/knight_m
 res://utilities
 res://combat_characters/defenders
 res://tilesets/0x72_dungeon

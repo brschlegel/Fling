@@ -36,6 +36,12 @@ config/icon="res://icon.svg"
 FlingableManager="*res://flingables/flingable_manager.gd"
 MouseManager="*res://utilities/mouse_manager.gd"
 
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=288
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="Fling"

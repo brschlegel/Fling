@@ -1,15 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8uf5nuu8wa7s"]
+[gd_scene load_steps=4 format=3 uid="uid://c8uf5nuu8wa7s"]
 
 [ext_resource type="PackedScene" uid="uid://cpyw75ds6u6jb" path="res://combat_characters/defenders/defender.tscn" id="1_vbwwk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uahwg"]
-size = Vector2(4, 25)
-
-[sub_resource type="Gradient" id="Gradient_mokdt"]
-offsets = PackedFloat32Array(0.934985, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vn7ut"]
-gradient = SubResource("Gradient_mokdt")
+[ext_resource type="PackedScene" uid="uid://txs77dlnqdqq" path="res://utilities/base_objects/base_tiles.tscn" id="2_llu3w"]
+[ext_resource type="PackedScene" uid="uid://byh5q01il6u7k" path="res://combat_characters/enemies/skeleton/skeleton.tscn" id="3_qxhiy"]
 
 [node name="Fling Testbed" type="Node2D"]
 
@@ -17,61 +10,13 @@ gradient = SubResource("Gradient_mokdt")
 position = Vector2(151, 110)
 
 [node name="Defender2" parent="." instance=ExtResource("1_vbwwk")]
-position = Vector2(527, 110)
+position = Vector2(449, 110)
 
 [node name="Defender3" parent="." instance=ExtResource("1_vbwwk")]
-position = Vector2(311, 303)
+position = Vector2(311, 192)
 
-[node name="Left Wall" type="StaticBody2D" parent="."]
-position = Vector2(0, 310)
-scale = Vector2(1, 28.4)
+[node name="TileMap" parent="." instance=ExtResource("2_llu3w")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall"]
-position = Vector2(5, -0.0352106)
-shape = SubResource("RectangleShape2D_uahwg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Left Wall"]
-position = Vector2(2, 0.140843)
-scale = Vector2(0.09375, 24.8592)
-texture = SubResource("GradientTexture1D_vn7ut")
-
-[node name="Right Wall" type="StaticBody2D" parent="."]
-position = Vector2(1150, 310)
-scale = Vector2(1, 28.4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Wall"]
-position = Vector2(5, -0.0352106)
-shape = SubResource("RectangleShape2D_uahwg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Right Wall"]
-position = Vector2(2, 0.140843)
-scale = Vector2(0.09375, 24.8592)
-texture = SubResource("GradientTexture1D_vn7ut")
-
-[node name="Top Wall" type="StaticBody2D" parent="."]
-position = Vector2(584, -3)
-rotation = 1.5708
-scale = Vector2(1.232, 49)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top Wall"]
-position = Vector2(5, -0.0352106)
-shape = SubResource("RectangleShape2D_uahwg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Top Wall"]
-position = Vector2(2, 0.140843)
-scale = Vector2(0.09375, 24.8592)
-texture = SubResource("GradientTexture1D_vn7ut")
-
-[node name="Bottom Wall" type="StaticBody2D" parent="."]
-position = Vector2(575, 660)
-rotation = 1.5708
-scale = Vector2(1.232, 49)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Wall"]
-position = Vector2(5, -0.0352106)
-shape = SubResource("RectangleShape2D_uahwg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Bottom Wall"]
-position = Vector2(2, 0.140843)
-scale = Vector2(0.09375, 24.8592)
-texture = SubResource("GradientTexture1D_vn7ut")
+[node name="skeleton" parent="." instance=ExtResource("3_qxhiy")]
+position = Vector2(163, 61)
+script = null

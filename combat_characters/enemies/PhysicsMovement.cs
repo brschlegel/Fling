@@ -16,11 +16,13 @@ public partial class PhysicsMovement : Node
 	//www.youtube.com/watch?v=qdskE8PJy6Q&ab_channel=ToyfulGames
 	public Vector2 GetForce(Vector2 unitMove, Vector2 currentVelocity, float mass)
 	{
+		//GD.Print(String.Format("UnitMove: {0}, currentVelocity: {1}, Mass {2}", unitMove, currentVelocity, mass));
 		//When turning 180 degrees, it takes twice as long to slow down to zero, and then speed back up in the other direction
         // when compared to running from a standstill
         //The animation curve scales the acceleration from 1-2 based on the dot product (how far away the current velocity is from the desired velocity)
 		float velDot = unitMove.Dot(goalVel.Normalized());
 		float accel = acceleration * _GetTurningModifier(velDot);
+		//GD.Print(String.Format("VelDot: {0}, TuningModifier: {2}, Accel: {1}", velDot, accel, _GetTurningModifier(velDot)));
 		
 		//We want to move at max speed of our input
 		Vector2 desiredVel = unitMove * maxSpeed;
@@ -31,6 +33,8 @@ public partial class PhysicsMovement : Node
 		Vector2 needAccel = (goalVel - currentVelocity) / (float)GetPhysicsProcessDeltaTime();
 
 		needAccel = needAccel.LimitLength(maxAccelerationForce * _GetTurningModifier(velDot));
+
+		//GD.Print(String.Format("DesiredVel: {0}, GoalVel: {1}, needAccel: {2}", desiredVel, goalVel, needAccel ));
 		return needAccel * mass;
 	}
 

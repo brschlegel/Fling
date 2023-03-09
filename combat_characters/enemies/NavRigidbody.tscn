@@ -16,5 +16,8 @@ shape = SubResource("CircleShape2D_d2sus")
 
 [node name="PhysicsMovement" type="Node" parent="."]
 script = ExtResource("2_ygnkw")
+maxSpeed = 40.0
+acceleration = 100.0
+maxAccelerationForce = 100.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

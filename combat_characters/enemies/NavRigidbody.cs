@@ -27,10 +27,8 @@ public partial class NavRigidbody : RigidBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 			Vector2 desiredLocation = agent.GetNextPathPosition();
-			GD.Print("Taret pos: " + agent.TargetPosition);
-			GD.Print()
-			GD.Print(desiredLocation);
-			Vector2 force = move.GetForce((desiredLocation - Position).Normalized(), LinearVelocity, Mass);
+		
+			Vector2 force = move.GetForce((desiredLocation - GlobalPosition).Normalized(), LinearVelocity, Mass);
 			ApplyCentralForce(force);
 		
 	  
@@ -38,7 +36,7 @@ public partial class NavRigidbody : RigidBody2D
 
 	public void SetTargetLocation(Vector2 location, bool startMoving = true)
 	{
-		agent.SetTargetPosition(location);
+		agent.TargetPosition = location;
 		moving = startMoving;
 	}
 

@@ -9,7 +9,19 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m3xqx"]
 animations = [{
-"frames": [ExtResource("2_k6kkd"), ExtResource("3_vq7k4"), ExtResource("4_uhcst"), ExtResource("5_fmml1")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k6kkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vq7k4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uhcst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fmml1")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
@@ -28,8 +40,7 @@ position = Vector2(0, 13)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flingable"]
 texture_filter = 1
 rotation = -0.00856873
-frames = SubResource("SpriteFrames_m3xqx")
+sprite_frames = SubResource("SpriteFrames_m3xqx")
 animation = &"idle"
-playing = true
 
 [editable path="Flingable"]

@@ -1,15 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://m374j4d10ca6"]
+[gd_scene load_steps=2 format=3 uid="uid://m374j4d10ca6"]
 
-[ext_resource type="PackedScene" uid="uid://bjs4grq6xnmrn" path="res://utilities/base_objects/base_tilemap.tscn" id="1_ccbwi"]
 [ext_resource type="Script" path="res://combat_characters/enemies/nav_test.gd" id="2_o5m8f"]
-[ext_resource type="PackedScene" uid="uid://byh5q01il6u7k" path="res://combat_characters/enemies/skeleton/skeleton.tscn" id="3_ygjr0"]
 
 [node name="navigation_testbed" type="Node2D"]
 
-[node name="base_tilemap" parent="." instance=ExtResource("1_ccbwi")]
-
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("2_o5m8f")
-
-[node name="Skeleton" parent="Node2D" instance=ExtResource("3_ygjr0")]
-position = Vector2(147, 73)

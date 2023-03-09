@@ -19,4 +19,5 @@ position = Vector2(311, 192)
 
 [node name="skeleton" parent="." instance=ExtResource("3_qxhiy")]
 position = Vector2(163, 61)
-script = null
+gravity_scale = 0.0
+lock_rotation = true

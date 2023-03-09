@@ -12,12 +12,36 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_owaps"]
 animations = [{
-"frames": [ExtResource("1_pxso1"), ExtResource("2_y16bf"), ExtResource("3_f2xwu"), ExtResource("4_ua6uo")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pxso1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y16bf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f2xwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ua6uo")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [ExtResource("5_rs3cu"), ExtResource("6_atrcp"), ExtResource("7_ikrh5"), ExtResource("8_p7cn4")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rs3cu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_atrcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ikrh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p7cn4")
+}],
 "loop": true,
 "name": &"run",
 "speed": 5.0
@@ -25,6 +49,6 @@ animations = [{
 
 [node name="Skeleton" instance=ExtResource("1_a6en2")]
 
-[node name="AnimatedSprite2D" parent="." index="1"]
-frames = SubResource("SpriteFrames_owaps")
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_owaps")
 animation = &"run"

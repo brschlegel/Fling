@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://txs77dlnqdqq" path="res://utilities/base_objects/base_tiles.tscn" id="1_y3ymq"]
 [ext_resource type="Script" path="res://utilities/base_objects/Map.cs" id="2_p37b1"]
 [ext_resource type="Script" path="res://utilities/base_objects/NavigationAgents.cs" id="3_g4vmx"]
-[ext_resource type="PackedScene" uid="uid://byh5q01il6u7k" path="res://combat_characters/enemies/skeleton/skeleton.tscn" id="4_uesp7"]
+[ext_resource type="PackedScene" uid="uid://c6hs58y0687qr" path="res://combat_characters/enemies/skeleton.tscn" id="4_7ate2"]
 [ext_resource type="PackedScene" uid="uid://cpyw75ds6u6jb" path="res://combat_characters/defenders/defender.tscn" id="6_pr2fm"]
 
 [node name="base_level" type="Node2D"]
@@ -21,8 +21,8 @@ position = Vector2(65, 82)
 [node name="NavigationAgents" type="Node" parent="TileMap"]
 script = ExtResource("3_g4vmx")
 
-[node name="Skeleton" parent="TileMap/NavigationAgents" instance=ExtResource("4_uesp7")]
-position = Vector2(441, 194)
+[node name="Skeleton" parent="TileMap/NavigationAgents" instance=ExtResource("4_7ate2")]
+position = Vector2(435, 196)
 
 [node name="Defender" parent="." instance=ExtResource("6_pr2fm")]
 position = Vector2(245, 61)

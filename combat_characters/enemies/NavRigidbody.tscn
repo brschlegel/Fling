@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2sus"]
 
 [node name="NavRigidbody" type="RigidBody2D"]
+position = Vector2(0, -1)
 gravity_scale = 0.0
 continuous_cd = 1
 lock_rotation = true

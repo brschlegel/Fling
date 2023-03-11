@@ -1,13 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6rioamxi2vk4"]
+[gd_scene load_steps=2 format=3 uid="uid://d3v0mwtvim7yp"]
 
 [ext_resource type="PackedScene" uid="uid://cygpl3xmpv0gy" path="res://combat_characters/enemies/NavRigidbody.tscn" id="1_m7ijy"]
 
 [node name="Enemy" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-
 [node name="NavRigidbody" parent="." instance=ExtResource("1_m7ijy")]
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="NavRigidbody"]
-remote_path = NodePath("../..")
+remote_path = NodePath("../../Non-Physics")
+
+[node name="Non-Physics" type="Node2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Non-Physics"]

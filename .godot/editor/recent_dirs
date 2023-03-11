@@ -1,7 +1,7 @@
-res://sprite_test
 res://combat_characters/enemies
-res://flingables
 res://combat_characters/enemies/skeleton
+res://sprite_test
+res://flingables
 res://utilities/base_objects
 res://tilesets/0x72_dungeon/individual_frames/knight_m
 res://utilities

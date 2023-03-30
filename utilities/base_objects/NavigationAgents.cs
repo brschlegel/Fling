@@ -16,7 +16,7 @@ public partial class NavigationAgents : Node
 	public void Init()
 	{
 		agents = new List<NavRigidbody>();
-		agents.Add((GetChild(0).GetNode<NavRigidbody>("NavRigidbody")));
+		agents.Add((GetNode<NavRigidbody>("Skeleton")));
 		agents[0].SetTargetLocation(navPoints[0]);
 	}
 

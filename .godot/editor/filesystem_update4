@@ -1,4 +1,9 @@
-res://combat_characters/enemies/NavRigidbody.tscn
-res://sprite_test/sprite_test_map.tres
 res://utilities/base_objects/base_level.tscn
-res://combat_characters/enemies/nav_test.gd
+res://sprite_test/sprite_test_map.tres
+res://hitboxes/HitHandler.cs
+res://flingables/flingable.tscn
+res://combat_characters/enemies/NavRigidbody.tscn
+res://combat_characters/enemies/skeleton/skeleton.tscn
+res://hitboxes/Hitbox.tscn
+res://hitboxes/Hurtbox.tscn
+res://hitboxes/Hitbox_Test.tscn

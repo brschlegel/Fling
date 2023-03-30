@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c36v0pu4fq3je"]
+
+[ext_resource type="PackedScene" uid="uid://55mgjujayafb" path="res://hitboxes/Hurtbox.tscn" id="1_tw6dc"]
+[ext_resource type="Script" path="res://hitboxes/PrintOnHit.cs" id="2_d54tp"]
+[ext_resource type="PackedScene" uid="uid://byhiuviu4r1id" path="res://hitboxes/Hitbox.tscn" id="3_odu6l"]
+[ext_resource type="Script" path="res://utilities/TestMover.gd" id="3_x3u3k"]
+
+[node name="Hitbox_Test" type="Node2D"]
+
+[node name="HurtboxOwner" type="Node2D" parent="."]
+position = Vector2(117, 71)
+
+[node name="Hurtbox" parent="HurtboxOwner" node_paths=PackedStringArray("handler", "owner") instance=ExtResource("1_tw6dc")]
+handler = NodePath("../Node")
+owner = NodePath("..")
+
+[node name="Node" type="Node" parent="HurtboxOwner"]
+script = ExtResource("2_d54tp")
+
+[node name="HitboxOwner" type="CharacterBody2D" parent="."]
+position = Vector2(304, 95)
+script = ExtResource("3_x3u3k")
+
+[node name="Hitbox" parent="HitboxOwner" node_paths=PackedStringArray("owner") instance=ExtResource("3_odu6l")]
+owner = NodePath("..")

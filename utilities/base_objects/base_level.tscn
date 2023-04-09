@@ -22,7 +22,7 @@ position = Vector2(65, 82)
 script = ExtResource("3_g4vmx")
 
 [node name="Skeleton" parent="TileMap/NavigationAgents" instance=ExtResource("4_5bjw7")]
-position = Vector2(396, 185)
+position = Vector2(398, 185)
 
 [node name="Defender" parent="." instance=ExtResource("6_pr2fm")]
 position = Vector2(245, 61)

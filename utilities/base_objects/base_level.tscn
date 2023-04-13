@@ -54,6 +54,16 @@ location = NodePath("Location")
 [node name="Location" type="Node2D" parent="Spawners/Spawner"]
 position = Vector2(53, 72)
 
+[node name="Spawner2" type="Node2D" parent="Spawners" node_paths=PackedStringArray("spawnParent", "location")]
+script = ExtResource("6_r3h7g")
+spawnParent = NodePath("../../TileMap/NavigationAgents")
+skeletonPrefab = ExtResource("4_5bjw7")
+timeToSpawn = 5.0
+location = NodePath("Location")
+
+[node name="Location" type="Node2D" parent="Spawners/Spawner2"]
+position = Vector2(450, 69)
+
 [node name="Door Stuff" type="Node2D" parent="."]
 
 [node name="HealthBar" parent="Door Stuff" node_paths=PackedStringArray("health") instance=ExtResource("8_n854h")]

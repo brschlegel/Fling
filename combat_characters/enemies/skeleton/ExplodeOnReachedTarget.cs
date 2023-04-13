@@ -22,7 +22,8 @@ public partial class ExplodeOnReachedTarget : Node2D
 
 	private void Explode()
 	{
-		EmitSignal(SignalName.Exploded);
+		EmitSignal(SignalName.Exploded, damage);
+		GD.Print("we be exploding");
 		nav.QueueFree();
 	}
 }

@@ -19,38 +19,38 @@ public partial class NavRigidbody : RigidBody2D
 	{
 		agent = GetNode<NavigationAgent2D>("NavigationAgent2D");
 		move = GetNode<PhysicsMovement>("PhysicsMovement");
-		agent.TargetReached += _OnTargetReached;
+		//agent.TargetReached += _OnTargetReached;
 
 		agent.TargetDesiredDistance = distanceThreshold;
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-			Vector2 desiredLocation = agent.GetNextPathPosition();
+		Vector2 desiredLocation = agent.GetNextPathPosition();
 		
-			Vector2 force = move.GetForce((desiredLocation - GlobalPosition).Normalized(), LinearVelocity, Mass);
-			ApplyCentralForce(force);
-		
+		Vector2 force = move.GetForce((desiredLocation - GlobalPosition).Normalized(), LinearVelocity, Mass);
+		ApplyCentralForce(force);
+		if(agent.DistanceToTarget() <= distanceThreshold)
+		{
+			_OnTargetReached();
+		}
 	  
 	}
 
 	public void SetTargetLocation(Vector2 location, bool startMoving = true)
 	{
 		agent.TargetPosition = location;
-		moving = startMoving;
-	}
 
-	private void _OnTargetReached()
-	{
-		GD.Print("Target Reached");
-		if (moving)
-		{
-			moving = false;
-			EmitSignal(SignalName.TargetReached);
-		}
-	}
+    }
 
-   
+    private void _OnTargetReached()
+    {
+        GD.Print("Target Reached");
+        moving = false;
+        EmitSignal(SignalName.TargetReached);
+    }
+
+
 
 
 

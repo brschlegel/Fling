@@ -1,11 +1,3 @@
-res://sprite_test/sprite_test_map.tres
-res://Healthbar/HealthBar.tscn
-res://hitboxes/HitHandler.cs
-res://combat_characters/enemies/skeleton/skeleton.tscn
 res://utilities/base_objects/base_level.tscn
-res://flingables/flingable.tscn
-res://combat_characters/enemies/NavRigidbody.tscn
-res://hitboxes/Hitbox.tscn
-res://hitboxes/Hurtbox.tscn
-res://combat_characters/combat_character.tscn
-res://combat_characters/defenders/defender.tscn
+res://sprite_test/sprite_test_map.tres
+res://hitboxes/HitHandler.cs

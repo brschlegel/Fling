@@ -40,7 +40,8 @@ position = Vector2(-8, -14)
 health = NodePath("../Health")
 maxSize = 16
 
-[node name="Explode" type="Node2D" parent="Combat" index="2"]
+[node name="Explode" type="Node2D" parent="Combat" index="2" node_paths=PackedStringArray("nav")]
 position = Vector2(-8, -14)
 script = ExtResource("8_hirej")
+nav = NodePath("../..")
 damage = 10.0

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjxf3ccrdxui1"]
+
+[ext_resource type="Script" path="res://Healthbar/HealthBar.cs" id="1_t0elp"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_c81r8"]
+
+[node name="HealthBar" type="Polygon2D"]
+texture_filter = 1
+color = Color(0.847059, 0.0392157, 0, 1)
+texture = SubResource("ImageTexture_c81r8")
+polygon = PackedVector2Array(2, -2, 0, -2, 0, 2, 2, 2)
+script = ExtResource("1_t0elp")

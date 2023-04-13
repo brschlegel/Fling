@@ -42,10 +42,11 @@ public partial class NavRigidbody : RigidBody2D
 
 	private void _OnTargetReached()
 	{
+		GD.Print("Target Reached");
 		if (moving)
 		{
 			moving = false;
-			//EmitSignal(SignalName.);
+			EmitSignal(SignalName.TargetReached);
 		}
 	}
 

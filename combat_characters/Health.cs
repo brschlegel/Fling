@@ -12,6 +12,8 @@ public partial class Health : Node
 
 	[Signal]
 	public delegate void DiedEventHandler();
+	[Signal]
+	public delegate void HealthUpdatedEventHandler(float currentHealth);
 
 	public override void _Ready()
 	{
@@ -27,6 +29,7 @@ public partial class Health : Node
 			Die();
 		}
 
+		EmitSignal(SignalName.HealthUpdated, currentHealth);
 		GD.Print("Oofy Ouchie that hurt by this much: " + damage + " and my health is now: " + currentHealth);
 		return currentHealth;
 	}

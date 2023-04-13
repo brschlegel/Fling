@@ -16,13 +16,17 @@ public partial class NavigationAgents : Node
 	public void Init()
 	{
 		agents = new List<NavRigidbody>();
-		agents.Add((GetNode<NavRigidbody>("Skeleton")));
-		agents[0].SetTargetLocation(navPoints[0]);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		//GD.Print(agents[0].GlobalPosition);
+	}
+
+	public void AgentAdded(NavRigidbody nav)
+	{
+		agents.Add(nav);
+		nav.SetTargetLocation(navPoints[0]);
 	}
 }

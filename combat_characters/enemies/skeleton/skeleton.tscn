@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbx2mpgm1k24"]
+[gd_scene load_steps=9 format=3 uid="uid://dbx2mpgm1k24"]
 
 [ext_resource type="PackedScene" uid="uid://cygpl3xmpv0gy" path="res://combat_characters/enemies/NavRigidbody.tscn" id="1_ghw60"]
 [ext_resource type="SpriteFrames" uid="uid://bpibb53vrb75s" path="res://combat_characters/enemies/skeleton/skeleton_anim.tres" id="2_cyckd"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://hitboxes/HitHandlers/HitEventSplitter.cs" id="4_7237a"]
 [ext_resource type="Script" path="res://hitboxes/HitHandlers/HitHandlerDamage.cs" id="5_mmfdb"]
 [ext_resource type="Script" path="res://combat_characters/Health.cs" id="6_jqdn8"]
+[ext_resource type="PackedScene" uid="uid://bjxf3ccrdxui1" path="res://Healthbar/HealthBar.tscn" id="7_pwyy8"]
+[ext_resource type="Script" path="res://combat_characters/enemies/skeleton/ExplodeOnReachedTarget.cs" id="8_hirej"]
 
 [node name="Skeleton" instance=ExtResource("1_ghw60")]
 
@@ -25,10 +27,20 @@ script = ExtResource("4_7237a")
 script = ExtResource("5_mmfdb")
 health = NodePath("../../Combat/Health")
 
-[node name="Combat" type="Node" parent="." index="6"]
+[node name="Combat" type="Node2D" parent="." index="6"]
 
 [node name="Health" type="Node" parent="Combat" index="0" node_paths=PackedStringArray("root")]
 script = ExtResource("6_jqdn8")
 currentHealth = 100.0
 maxHealth = 100.0
 root = NodePath("../..")
+
+[node name="HealthBar" parent="Combat" index="1" node_paths=PackedStringArray("health") instance=ExtResource("7_pwyy8")]
+position = Vector2(-8, -14)
+health = NodePath("../Health")
+maxSize = 16
+
+[node name="Explode" type="Node2D" parent="Combat" index="2"]
+position = Vector2(-8, -14)
+script = ExtResource("8_hirej")
+damage = 10.0

@@ -46,12 +46,11 @@ rotation = -0.00856873
 sprite_frames = SubResource("SpriteFrames_m3xqx")
 animation = &"idle"
 
-[node name="Hitbox" parent="Flingable" node_paths=PackedStringArray("rigidbody", "owner") instance=ExtResource("7_aa2js")]
+[node name="Hitbox" parent="Flingable" node_paths=PackedStringArray("rigidbody") instance=ExtResource("7_aa2js")]
 position = Vector2(0, 10)
 script = ExtResource("8_kopyc")
 rigidbody = NodePath("..")
 velThreshold = 20.0
-owner = NodePath("../..")
 
 [node name="AttackData" type="Node" parent="Flingable/Hitbox"]
 script = ExtResource("9_x1duf")

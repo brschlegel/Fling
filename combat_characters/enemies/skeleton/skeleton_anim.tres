@@ -13,6 +13,23 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_4g8c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6h7md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iubd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u5d3d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_6kn3h")
 }, {
 "duration": 1.0,
@@ -26,22 +43,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_4g8c8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_6h7md")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_iubd5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_u5d3d")
-}],
-"loop": true,
-"name": &"run",
 "speed": 5.0
 }]

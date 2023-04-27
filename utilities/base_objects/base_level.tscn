@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://m25jwc60ppd8"]
+[gd_scene load_steps=12 format=3 uid="uid://m25jwc60ppd8"]
 
 [ext_resource type="Script" path="res://utilities/base_objects/GameManager.cs" id="1_arfxx"]
 [ext_resource type="PackedScene" uid="uid://txs77dlnqdqq" path="res://utilities/base_objects/base_tiles.tscn" id="1_y3ymq"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cpyw75ds6u6jb" path="res://combat_characters/defenders/defender.tscn" id="6_pr2fm"]
 [ext_resource type="Script" path="res://utilities/base_objects/Spawner.cs" id="6_r3h7g"]
 [ext_resource type="PackedScene" uid="uid://bjxf3ccrdxui1" path="res://Healthbar/HealthBar.tscn" id="8_n854h"]
+[ext_resource type="PackedScene" uid="uid://c7ie250h336v8" path="res://combat_characters/enemies/skeleton/goblin.tscn" id="8_nshp5"]
 [ext_resource type="Script" path="res://combat_characters/Health.cs" id="9_2hn82"]
+[ext_resource type="PackedScene" uid="uid://trvo1mc26ipk" path="res://combat_characters/enemies/skeleton/demon.tscn" id="9_5uxra"]
 
 [node name="base_level" type="Node2D" node_paths=PackedStringArray("doorHealth", "spawners", "agents")]
 script = ExtResource("1_arfxx")
@@ -42,12 +44,26 @@ position = Vector2(413, 169)
 [node name="Defender4" parent="." instance=ExtResource("6_pr2fm")]
 position = Vector2(244, 237)
 
+[node name="Defender5" parent="." instance=ExtResource("6_pr2fm")]
+position = Vector2(350, 228)
+
+[node name="Defender6" parent="." instance=ExtResource("6_pr2fm")]
+position = Vector2(112, 79)
+
+[node name="Defender7" parent="." instance=ExtResource("6_pr2fm")]
+position = Vector2(133, 227)
+
+[node name="Defender8" parent="." instance=ExtResource("6_pr2fm")]
+position = Vector2(361, 74)
+
 [node name="Spawners" type="Node2D" parent="."]
 
 [node name="Spawner" type="Node2D" parent="Spawners" node_paths=PackedStringArray("spawnParent", "location")]
 script = ExtResource("6_r3h7g")
 spawnParent = NodePath("../../TileMap/NavigationAgents")
 skeletonPrefab = ExtResource("4_5bjw7")
+goblinPrefab = ExtResource("8_nshp5")
+demonPrefab = ExtResource("9_5uxra")
 timeToSpawn = 5.0
 location = NodePath("Location")
 
@@ -58,6 +74,8 @@ position = Vector2(53, 72)
 script = ExtResource("6_r3h7g")
 spawnParent = NodePath("../../TileMap/NavigationAgents")
 skeletonPrefab = ExtResource("4_5bjw7")
+goblinPrefab = ExtResource("8_nshp5")
+demonPrefab = ExtResource("9_5uxra")
 timeToSpawn = 5.0
 location = NodePath("Location")
 
@@ -67,7 +85,7 @@ position = Vector2(450, 69)
 [node name="Door Stuff" type="Node2D" parent="."]
 
 [node name="HealthBar" parent="Door Stuff" node_paths=PackedStringArray("health") instance=ExtResource("8_n854h")]
-position = Vector2(243, 138)
+position = Vector2(233, 138)
 health = NodePath("../DoorHealth")
 maxSize = 50
 

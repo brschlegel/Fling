@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3 uid="uid://c7ie250h336v8"]
+
+[ext_resource type="PackedScene" uid="uid://cygpl3xmpv0gy" path="res://combat_characters/enemies/NavRigidbody.tscn" id="1_2isby"]
+[ext_resource type="Texture2D" uid="uid://16demvrwampm" path="res://tilesets/0x72_dungeon/individual_frames/goblin/goblin_run_anim_f0.png" id="2_edy0c"]
+[ext_resource type="PackedScene" uid="uid://55mgjujayafb" path="res://hitboxes/Hurtbox.tscn" id="3_28bxc"]
+[ext_resource type="Texture2D" uid="uid://oxuyfgkk2k3y" path="res://tilesets/0x72_dungeon/individual_frames/goblin/goblin_run_anim_f1.png" id="3_tkfvl"]
+[ext_resource type="Texture2D" uid="uid://ce58aclgyyw0s" path="res://tilesets/0x72_dungeon/individual_frames/goblin/goblin_run_anim_f2.png" id="4_c6yyp"]
+[ext_resource type="Script" path="res://hitboxes/HitHandlers/HitEventSplitter.cs" id="4_d4cvj"]
+[ext_resource type="Texture2D" uid="uid://c411ulm01yu7c" path="res://tilesets/0x72_dungeon/individual_frames/goblin/goblin_run_anim_f3.png" id="5_422o0"]
+[ext_resource type="Script" path="res://hitboxes/HitHandlers/HitHandlerDamage.cs" id="5_kh8pd"]
+[ext_resource type="Script" path="res://combat_characters/Health.cs" id="6_m1ajc"]
+[ext_resource type="PackedScene" uid="uid://bjxf3ccrdxui1" path="res://Healthbar/HealthBar.tscn" id="7_a5tyi"]
+[ext_resource type="Script" path="res://combat_characters/enemies/skeleton/ExplodeOnReachedTarget.cs" id="8_mnlak"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ltfj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_edy0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tkfvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c6yyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_422o0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Goblin" instance=ExtResource("1_2isby")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0ltfj")
+frame_progress = 0.28703
+
+[node name="Hurtbox" parent="." index="4" node_paths=PackedStringArray("handler", "owner") instance=ExtResource("3_28bxc")]
+handler = NodePath("../HitHandlers")
+owner = NodePath("..")
+
+[node name="HitHandlers" type="Node" parent="." index="5"]
+script = ExtResource("4_d4cvj")
+
+[node name="DamageHitHandler" type="Node" parent="HitHandlers" index="0" node_paths=PackedStringArray("health")]
+script = ExtResource("5_kh8pd")
+health = NodePath("../../Combat/Health")
+
+[node name="Combat" type="Node2D" parent="." index="6"]
+
+[node name="Health" type="Node" parent="Combat" index="0" node_paths=PackedStringArray("root")]
+script = ExtResource("6_m1ajc")
+currentHealth = 50.0
+maxHealth = 50.0
+root = NodePath("../..")
+
+[node name="HealthBar" parent="Combat" index="1" node_paths=PackedStringArray("health") instance=ExtResource("7_a5tyi")]
+position = Vector2(-8, -14)
+health = NodePath("../Health")
+maxSize = 16
+
+[node name="Explode" type="Node2D" parent="Combat" index="2" node_paths=PackedStringArray("nav")]
+position = Vector2(-8, -14)
+script = ExtResource("8_mnlak")
+nav = NodePath("../..")
+damage = 5.0

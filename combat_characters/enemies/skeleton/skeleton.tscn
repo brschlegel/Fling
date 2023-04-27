@@ -11,10 +11,12 @@
 
 [node name="Skeleton" instance=ExtResource("1_ghw60")]
 
+[node name="PhysicsMovement" parent="." index="1"]
+maxSpeed = 30.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
 texture_filter = 1
 sprite_frames = ExtResource("2_cyckd")
-animation = &"idle"
 
 [node name="Hurtbox" parent="." index="4" node_paths=PackedStringArray("handler", "owner") instance=ExtResource("3_16v0m")]
 handler = NodePath("../HitHandlers")
@@ -31,8 +33,8 @@ health = NodePath("../../Combat/Health")
 
 [node name="Health" type="Node" parent="Combat" index="0" node_paths=PackedStringArray("root")]
 script = ExtResource("6_jqdn8")
-currentHealth = 100.0
-maxHealth = 100.0
+currentHealth = 175.0
+maxHealth = 175.0
 root = NodePath("../..")
 
 [node name="HealthBar" parent="Combat" index="1" node_paths=PackedStringArray("health") instance=ExtResource("7_pwyy8")]

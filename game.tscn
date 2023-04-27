@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgrknrushmbap"]
+
+[ext_resource type="PackedScene" uid="uid://bk1jki7gc3erb" path="res://UI/UI.tscn" id="1_y6n6y"]
+[ext_resource type="PackedScene" uid="uid://4utjiloc8akg" path="res://world/world.tscn" id="2_83m36"]
+[ext_resource type="PackedScene" uid="uid://m25jwc60ppd8" path="res://utilities/base_objects/base_level.tscn" id="2_r1rha"]
+
+[node name="game" type="Node"]
+
+[node name="World" parent="." instance=ExtResource("2_83m36")]
+position = Vector2(0, 3)
+level = ExtResource("2_r1rha")
+
+[node name="UI" parent="." instance=ExtResource("1_y6n6y")]
+
+[connection signal="game_over" from="World" to="UI" method="_on_game_end"]
+[connection signal="pressed" from="UI/Main Menu/VSplitContainer/MarginContainer/VBoxContainer/Start Game" to="World" method="_spawn_level"]
+[connection signal="pressed" from="UI/Game Over/VSplitContainer/MarginContainer/VBoxContainer/Start Game" to="UI" method="_on_main_menu"]
+
+[editable path="UI"]
+[editable path="UI/Main Menu"]
+[editable path="UI/Game Over"]

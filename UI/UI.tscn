@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk1jki7gc3erb"]
+
+[ext_resource type="Script" path="res://UI/UI.gd" id="1_1hvxk"]
+[ext_resource type="PackedScene" uid="uid://qlj1m0461px3" path="res://UI/main_menu.tscn" id="1_46a4g"]
+[ext_resource type="PackedScene" uid="uid://cp6qgwsju5ffg" path="res://UI/game_over.tscn" id="3_mgka7"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1hvxk")
+
+[node name="Main Menu" parent="." instance=ExtResource("1_46a4g")]
+layout_mode = 1
+
+[node name="Game Over" parent="." instance=ExtResource("3_mgka7")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Main Menu/VSplitContainer/MarginContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
+
+[editable path="Main Menu"]
+[editable path="Game Over"]

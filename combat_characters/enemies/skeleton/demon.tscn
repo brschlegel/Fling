@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://trvo1mc26ipk"]
+
+[ext_resource type="PackedScene" uid="uid://cygpl3xmpv0gy" path="res://combat_characters/enemies/NavRigidbody.tscn" id="1_h1x3y"]
+[ext_resource type="Texture2D" uid="uid://btjcd7deegv4g" path="res://tilesets/0x72_dungeon/individual_frames/wogol/wogol_run_anim_f0.png" id="2_uidpp"]
+[ext_resource type="PackedScene" uid="uid://55mgjujayafb" path="res://hitboxes/Hurtbox.tscn" id="3_6jdex"]
+[ext_resource type="Texture2D" uid="uid://dxd1yeyfn6axv" path="res://tilesets/0x72_dungeon/individual_frames/wogol/wogol_run_anim_f1.png" id="3_7bppn"]
+[ext_resource type="Script" path="res://hitboxes/HitHandlers/HitEventSplitter.cs" id="4_71y6t"]
+[ext_resource type="Texture2D" uid="uid://2icd7tky2f65" path="res://tilesets/0x72_dungeon/individual_frames/wogol/wogol_run_anim_f2.png" id="4_jg7q3"]
+[ext_resource type="Script" path="res://hitboxes/HitHandlers/HitHandlerDamage.cs" id="5_c7es7"]
+[ext_resource type="Texture2D" uid="uid://wlrykfdn6jle" path="res://tilesets/0x72_dungeon/individual_frames/wogol/wogol_run_anim_f3.png" id="5_h6alb"]
+[ext_resource type="Script" path="res://combat_characters/Health.cs" id="6_7ppna"]
+[ext_resource type="PackedScene" uid="uid://bjxf3ccrdxui1" path="res://Healthbar/HealthBar.tscn" id="7_bwabc"]
+[ext_resource type="Script" path="res://combat_characters/enemies/skeleton/ExplodeOnReachedTarget.cs" id="8_5tnys"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4kvs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uidpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7bppn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jg7q3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h6alb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Demon" instance=ExtResource("1_h1x3y")]
+
+[node name="PhysicsMovement" parent="." index="1"]
+maxSpeed = 17.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_l4kvs")
+frame_progress = 0.770791
+
+[node name="Hurtbox" parent="." index="4" node_paths=PackedStringArray("handler", "owner") instance=ExtResource("3_6jdex")]
+handler = NodePath("../HitHandlers")
+owner = NodePath("..")
+
+[node name="HitHandlers" type="Node" parent="." index="5"]
+script = ExtResource("4_71y6t")
+
+[node name="DamageHitHandler" type="Node" parent="HitHandlers" index="0" node_paths=PackedStringArray("health")]
+script = ExtResource("5_c7es7")
+health = NodePath("../../Combat/Health")
+
+[node name="Combat" type="Node2D" parent="." index="6"]
+
+[node name="Health" type="Node" parent="Combat" index="0" node_paths=PackedStringArray("root")]
+script = ExtResource("6_7ppna")
+currentHealth = 300.0
+maxHealth = 300.0
+root = NodePath("../..")
+
+[node name="HealthBar" parent="Combat" index="1" node_paths=PackedStringArray("health") instance=ExtResource("7_bwabc")]
+position = Vector2(-8, -14)
+health = NodePath("../Health")
+maxSize = 16
+
+[node name="Explode" type="Node2D" parent="Combat" index="2" node_paths=PackedStringArray("nav")]
+position = Vector2(-8, -14)
+script = ExtResource("8_5tnys")
+nav = NodePath("../..")
+damage = 20.0
